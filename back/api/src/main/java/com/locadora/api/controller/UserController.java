@@ -19,8 +19,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/create")
-    public ResponseEntity<UserModel> registerUser(@RequestBody UserDto userDto) {
-        UserModel create = userService.create(userDto);
-        return new ResponseEntity<>(create, HttpStatus.CREATED);
+    public ResponseEntity<String> registerUser(@RequestBody UserDto userDto) {
+        userService.create(userDto);
+        return new ResponseEntity<>("Usuario cadastrado com sucesso", HttpStatus.CREATED);
     }
 }
